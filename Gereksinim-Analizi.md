@@ -17,4 +17,4 @@ Tüm gereksinimler çıkarıldıktan sonra ekip ile birlikte tartışılarak aş
 
 ## 👤 Gereksinim Dağılımları
 
-1. [İlayda Arzu Akkuş’un Gereksinimleri](Ilayda-Arzu-Akkus-Gereksinimler.md)
+1. [İlayda Arzu Akkuş’un Gereksinimleri](IlaydaArzuAkkus-Gereksinimler.md)
