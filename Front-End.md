@@ -1,18 +1,19 @@
-Frontend'i yayınladığınız domain adresi: http://frontend.com
+# 🌐 Front-End Yayın Adresi
 
-# Ali Atabin Frontend #
-1. Kayıt Ol
-2. Giriş Yap
-3. 2FA
-4. .....
-5. .....
-6. ....
+**Domain:** [http://frontend.com](http://frontend.com)
 
+---
 
-# Ayşe Toputut Frontend #
-1. ....
-2. ....
-3. ....
-4. ....
-5. ....
-6. ....
+## 👩‍💻 İlayda Arzu Akkuş Frontend Görevleri
+
+1. **Kayıt Ol** – Kullanıcının platforma kayıt olmasını sağlar.
+2. **Kayıt Sonrası İlgi Alanı Seçimi** – Kayıt sonrası kullanıcıdan kişi ve konu seçmesi istenir.
+3. **Giriş Yap** – Kullanıcı e-posta ve şifre ile giriş yapar.
+4. **Çıkış Yap** – Kullanıcı oturumunu sonlandırır.
+5. **Arama Çubuğu** – Yazı, kullanıcı ve topik araması yapılabilir.
+6. **Takip Sistemi** – Kullanıcılar kişi veya konuları takip edebilir.
+7. **Yazı Yazma Sayfası** – Yeni içerik oluşturulabilir.
+8. **Yazı Beğenme** – Kullanıcı yazıyı beğenebilir.
+9. **Yazı Kaydetme** – Yazı kaydedilerek daha sonra erişilebilir.
+10. **Yorum Yapma** – Kullanıcı yazıya yorum ekleyebilir.
+
