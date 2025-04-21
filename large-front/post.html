@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with HTML and CSS - Large</title>
+    <link rel="stylesheet" href="style/main.css">
+    <style>
+        /* Additional styles for post detail page */
+        .post-header {
+            margin: 40px 0;
+        }
+        .post-header h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .post-content {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+        .post-content p {
+            margin-bottom: 24px;
+        }
+        .comment-form {
+            margin-top: 40px;
+            border-top: 1px solid #e6e6e6;
+            padding-top: 40px;
+        }
+        .comment-form textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 12px;
+            border: 1px solid #e6e6e6;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            font-family: inherit;
+            font-size: 16px;
+            resize: vertical;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">Large</a>
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+            </div>
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-login">Login</a>
+                <a href="register.html" class="btn btn-register">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Post Content -->
+    <main class="container">
+        <article>
+            <header class="post-header">
+                <h1>Getting Started with HTML and CSS: A Beginner's Guide</h1>
+                <div class="post-meta">
+                    <span>By John Doe</span> · 
+                    <span>Oct 15, 2023</span> · 
+                    <span>Web Development</span>
+                </div>
+            </header>
+
+            <div class="post-content">
+                <p>
+                    HTML (HyperText Markup Language) and CSS (Cascading Style Sheets) are the fundamental building blocks of web development. Whether you're aspiring to become a web developer or simply want to understand how websites work, learning HTML and CSS is your first step into the world of web development.
+                </p>
+
+                <p>
+                    In this comprehensive guide, we'll walk through the basics of both HTML and CSS, showing you how these technologies work together to create beautiful and functional web pages. We'll cover everything from basic syntax to best practices, ensuring you have a solid foundation to build upon.
+                </p>
+
+                <p>
+                    HTML provides the structure of your web pages, while CSS handles the styling and layout. Think of HTML as the skeleton of your website and CSS as the skin and clothes that make it visually appealing. Together, they create the user interface that millions of people interact with every day.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">Web Development</span>
+                </div>
+            </div>
+
+            <!-- Comment Form -->
+            <div class="comment-form">
+                <h3 style="margin-bottom: 16px;">Leave a Comment</h3>
+                <form>
+                    <textarea placeholder="Write your comment here..." required></textarea>
+                    <button type="submit" class="btn-submit">Post Comment</button>
+                </form>
+            </div>
+        </article>
+    </main>
+</body>
+</html> 
