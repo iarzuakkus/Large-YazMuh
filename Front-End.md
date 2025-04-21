@@ -1,6 +1,7 @@
 # 🌐 Front-End Yayın Adresi
 
-**Domain:** [[http://large.com]([http://large.com](https://astounding-treacle-2a67cb.netlify.app/)])
+**Domain:** [http://large.com](https://astounding-treacle-2a67cb.netlify.app/)
+
 
 ---
 
