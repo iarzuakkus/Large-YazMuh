@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Large</title>
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/profile.css">
+
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">Large</a>
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+            </div>
+            <div class="nav-buttons" style="display: flex; align-items: center; gap: 16px;">
+                <a href="write.html" class="btn btn-write">Write</a>
+                <div class="user-menu">
+                    <img src="https://picsum.photos/32" alt="John Doe" class="user-avatar" id="userMenuBtn">
+                    <div class="dropdown-menu" id="userDropdown">
+                        <a href="profile.html" class="dropdown-item">Profile</a>
+                        <a href="#" class="dropdown-item">Library</a>
+                        <a href="#" class="dropdown-item">Stories</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">Settings</a>
+                        <a href="index.html" class="dropdown-item">Sign Out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Header -->
+    <header class="profile-header">
+        <img src="https://picsum.photos/200" alt="John Doe" class="profile-image">
+        <h1 class="profile-name">John Doe</h1>
+        <p class="profile-bio">Web developer and technical writer. Passionate about creating content that helps others learn and grow in web development.</p>
+    </header>
+
+    <!-- User's Posts -->
+    <main class="container">
+        <h2 style="margin-bottom: 24px;">Recent Posts</h2>
+        
+        <!-- Blog Post Card -->
+        <article class="post-card">
+            <div class="post-content">
+                <a href="post.html" class="post-title">
+                    <h2>Getting Started with HTML and CSS: A Beginner's Guide</h2>
+                </a>
+                <p class="post-excerpt">Learn the fundamentals of web development with this comprehensive guide to HTML and CSS. Perfect for beginners looking to start their journey in web development.</p>
+                <div class="post-meta">
+                    <span>Oct 15, 2023</span>
+                </div>
+                <div class="tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">Web Development</span>
+                </div>
+            </div>
+            <img src="https://picsum.photos/150/100" alt="Post thumbnail" class="post-image">
+        </article>
+
+        <article class="post-card">
+            <div class="post-content">
+                <a href="post.html" class="post-title">
+                    <h2>Understanding CSS Flexbox Layout</h2>
+                </a>
+                <p class="post-excerpt">A deep dive into CSS Flexbox layout system and how it can help you create responsive web layouts with ease.</p>
+                <div class="post-meta">
+                    <span>Oct 10, 2023</span>
+                </div>
+                <div class="tags">
+                    <span class="tag">CSS</span>
+                    <span class="tag">Flexbox</span>
+                    <span class="tag">Layout</span>
+                </div>
+            </div>
+            <img src="https://picsum.photos/150/100" alt="Post thumbnail" class="post-image">
+        </article>
+    </main>
+
+    <script src="script/profile.js">
+
+    </script>
+</body>
+</html> 
