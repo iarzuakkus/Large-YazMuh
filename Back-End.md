@@ -68,3 +68,6 @@ Projede ayrıca Redis, RabbitMQ gibi servislerin birlikte yönetilmesi için **D
 
 ## 17. CI/CD
 GitHub Actions kullanılarak yapılan kod değişikliklerinde otomatik test, build ve deploy işlemleri uygulanmıştır.
+
+
+🔗 **GitHub Repository:** [https://github.com/iarzuakkus/Large](https://github.com/iarzuakkus/Large)
