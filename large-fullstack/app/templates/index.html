@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Large - Blog Platform</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/index.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/navbar.css') }}">
+</head>
+<body>
+
+
+  {% include 'navbar.html' %}
+
+  <!-- Topics Navigation -->
+  <nav class="topics-nav">
+    <div class="container topics-list">
+      {% for topic in suggested_topics %}
+        <a href="#" class="topic-item">{{ topic.name }}</a>
+      {% endfor %}
+      <a href="#" class="more-topics">More topics</a>
+    </div>
+  </nav>
+
+  <!-- Main Content with Sidebar -->
+  <div class="container main-layout">
+    <!-- Main Content -->
+    <main>
+      {% for post in posts %}
+      <article class="post-card">
+        <div class="post-content">
+          <a href="{{ url_for('pages.post', post_id=post.id) }}" class="post-title">
+            <h2>{{ post.title }}</h2>
+          </a>
+          <p class="post-excerpt">{{ post.content[:150] }}...</p>
+          <div class="post-meta">
+            <span>By {{ post.author.username }}</span> ·
+            <span>{{ post.created_at.strftime('%b %d, %Y') }}</span>
+          </div>
+          <div class="tags">
+            {% for tag in post.topics %}
+              <span class="tag">{{ tag.name }}</span>
+            {% endfor %}
+          </div>
+          <div class="post-actions">
+            {% if is_logged_in %}
+              <button class="action-button like-btn" data-postid="{{ post.id }}">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                    2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09
+                    C13.09 3.81 14.76 3 16.5 3
+                    19.58 3 22 5.42 22 8.5
+                    c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <span>Like</span>
+              </button>
+              <button class="action-button save-btn" data-postid="{{ post.id }}">
+                <svg viewBox="0 0 24 24">
+                  <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5
+                    c0-1.1-.9-2-2-2z"/>
+                </svg>
+                <span>Save</span>
+              </button>
+            {% else %}
+              <a href="{{ url_for('pages.login_page') }}" class="action-button">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                    2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09
+                    C13.09 3.81 14.76 3 16.5 3
+                    19.58 3 22 5.42 22 8.5
+                    c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <span>Like</span>
+              </a>
+              <a href="{{ url_for('pages.login_page') }}" class="action-button">
+                <svg viewBox="0 0 24 24">
+                  <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5
+                    c0-1.1-.9-2-2-2z"/>
+                </svg>
+                <span>Save</span>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+        <img src="{{ post.image_url or 'https://picsum.photos/150/100' }}" alt="Post thumbnail" class="post-image" />
+      </article>
+      {% endfor %}
+    </main>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <!-- Suggested Topics -->
+      <div class="sidebar-section">
+        <h2 class="sidebar-title">Suggested Topics</h2>
+        {% for topic in suggested_topics %}
+        <div class="topic-suggestion">
+          <div class="topic-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/>
+            </svg>
+          </div>
+          <div class="topic-info">
+            <h3>{{ topic.name }}</h3>
+            <p>{{ topic.followers_count or 0 }} Followers</p>
+          </div>
+          {% if is_logged_in %}
+            <button class="follow-topic-btn" data-topicid="{{ topic.id }}">Follow</button>
+          {% else %}
+            <a href="{{ url_for('pages.login_page') }}" class="follow-topic-btn">Follow</a>
+          {% endif %}
+        </div>
+        {% endfor %}
+        <a href="#" class="see-more">See more topics</a>
+      </div>
+
+      <!-- Suggested Users -->
+      <div class="sidebar-section">
+        <h2 class="sidebar-title">Who to Follow</h2>
+        {% for user in suggested_users %}
+        <div class="profile-suggestion">
+          <img src="{{ user.avatar_url or 'https://picsum.photos/40' }}" alt="{{ user.username }}" />
+          <div class="profile-info">
+            <h3>{{ user.username }}</h3>
+            <p>{{ user.bio or 'No bio available' }}</p>
+          </div>
+          {% if is_logged_in %}
+            <button class="follow-user-btn" data-userid="{{ user.id }}">Follow</button>
+          {% else %}
+            <a href="{{ url_for('pages.login_page') }}" class="follow-user-btn">Follow</a>
+          {% endif %}
+        </div>
+        {% endfor %}
+        <a href="#" class="see-more">See more suggestions</a>
+      </div>
+    </aside>
+  </div>
+
+  <script src="{{ url_for('static', filename='script/navbar.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='script/index.js') }}" defer></script>
+
+</body>
+</html>

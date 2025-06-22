@@ -1,0 +1,36 @@
+<!-- templates/navbar.html -->
+<nav class="navbar">
+  <div class="container navbar-container">
+    <a href="{{ url_for('pages.index') }}" class="logo">Large</a>
+
+    <div class="search-container">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search..."
+        autocomplete="off"
+      />
+      <div id="searchResults" class="search-results-container"></div>
+    </div>
+
+    <div class="nav-buttons" style="display: flex; align-items: center; gap: 16px;">
+      {% if is_logged_in %}
+        <a href="{{ url_for('pages.write') }}" class="btn btn-write">Write</a>
+        <div class="user-menu">
+          <img src="https://picsum.photos/32" alt="Profil" class="user-avatar" id="userMenuBtn">
+          <div class="dropdown-menu" id="userDropdown">
+            <a href="{{ url_for('pages.profile') }}" class="dropdown-item">Profile</a>
+            <a href="#" class="dropdown-item">Library</a>
+            <a href="#" class="dropdown-item">Stories</a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">Settings</a>
+            <a href="{{ url_for('pages.logout') }}" class="dropdown-item">Sign Out</a>
+          </div>
+        </div>
+      {% else %}
+        <a href="{{ url_for('pages.login_page') }}" class="btn btn-login">Login</a>
+        <a href="{{ url_for('pages.register_page') }}" class="btn btn-register">Register</a>
+      {% endif %}
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register - Large</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/navbar.css') }}" />
+  <style>
+    .flashes {
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #ffebeb;
+      border: 1px solid #ffaaaa;
+      color: #cc0000;
+      border-radius: 4px;
+      list-style: none;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  {% include 'navbar.html' %}
+
+  <main class="container">
+    <div class="auth-container">
+      <h1 style="margin-bottom: 24px; text-align: center;">Join Large</h1>
+
+      <p id="api-message" class="flashes" style="display:none;"></p>
+
+      <form id="registerForm">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password</label>
+          <input type="password" id="confirm-password" name="confirm-password" required />
+        </div>
+        <button type="submit" class="btn-submit">Create Account</button>
+      </form>
+
+      <p style="text-align: center; margin-top: 16px;">
+        Already have an account?
+        <a href="/login" style="color: #1a8917; text-decoration: none;">Login</a>
+      </p>
+    </div>
+  </main>
+
+  <script src="{{ url_for('static', filename='script/navbar.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='script/register.js') }}" defer></script>
+</body>
+</html>

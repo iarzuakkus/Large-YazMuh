@@ -1,0 +1,92 @@
+
+        .interests-container {
+            max-width: 600px;
+            margin: 60px auto;
+            text-align: center;
+        }
+
+        .interests-title {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .interests-subtitle {
+            color: #757575;
+            margin-bottom: 40px;
+        }
+
+        .interests-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .interest-item {
+            padding: 12px 20px;
+            border-radius: 20px;
+            border: 1px solid #e6e6e6;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            background: #fff;
+        }
+
+        .interest-item:hover {
+            background: #f8f8f8;
+        }
+
+        .interest-item.selected {
+            background: #1a8917;
+            color: white;
+            border-color: #1a8917;
+        }
+
+        .suggested-profiles {
+            margin-top: 60px;
+            text-align: left;
+        }
+
+        .profile-suggestion {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            border: 1px solid #e6e6e6;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .profile-suggestion img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            margin-right: 16px;
+        }
+
+        .profile-info h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .profile-info p {
+            margin: 4px 0 0;
+            color: #757575;
+            font-size: 14px;
+        }
+
+        .follow-btn {
+            margin-left: auto;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid #1a8917;
+            color: #1a8917;
+            background: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .follow-btn:hover {
+            background: #1a8917;
+            color: white;
+        }

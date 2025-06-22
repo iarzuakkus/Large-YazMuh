@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ current_user.username }} - Large</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/profile.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/navbar.css') }}" />
+</head>
+<body>
+    
+    {% include 'navbar.html' %}
+
+    <!-- Profile Header -->
+    <header class="profile-header">
+        <img src="https://picsum.photos/200" alt="{{ current_user.username }}" class="profile-image" />
+        <h1 class="profile-name">{{ current_user.username }}</h1>
+        <p class="profile-bio">{{ current_user.bio or 'No bio available' }}</p>
+    </header>
+
+    <!-- User's Posts -->
+    <main class="container">
+        <h2 style="margin-bottom: 24px;">Recent Posts</h2>
+
+        {% if posts %}
+            {% for post in posts %}
+            <article class="post-card">
+                <div class="post-content">
+                    <a href="{{ url_for('pages.post', post_id=post.id) }}" class="post-title">
+                        <h2>{{ post.title }}</h2>
+                    </a>
+                    <p class="post-excerpt">{{ post.content[:150] }}...</p>
+                    <div class="post-meta">
+                        <span>{{ post.created_at.strftime('%b %d, %Y') }}</span>
+                    </div>
+                    <div class="tags">
+                        {% if post.tags %}
+                            {% for tag in post.tags %}
+                                <span class="tag">{{ tag.name }}</span>
+                            {% endfor %}
+                        {% else %}
+                            <span class="tag">No tags</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <img src="https://picsum.photos/150/100" alt="Post thumbnail" class="post-image" />
+            </article>
+            {% endfor %}
+        {% else %}
+            <p>Kullanıcının henüz gönderisi yok.</p>
+        {% endif %}
+    </main>
+
+    <script src="{{ url_for('static', filename='script/navbar.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='script/profile.js') }}" defer></script>
+</body>
+</html>

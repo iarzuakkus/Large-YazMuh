@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Select Your Interests - Large</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/interests.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/navbar.css') }}" />
+</head>
+<body>
+
+
+    {% include 'navbar.html' %}
+
+    <main class="container interests-container">
+        <h1 class="interests-title">What are you interested in?</h1>
+        <p class="interests-subtitle">Choose three or more topics to personalize your feed</p>
+
+        <form method="POST" id="topics-form">
+            <div class="interests-grid">
+                {% for topic in topics %}
+                    <button type="button" class="interest-item" data-id="{{ topic.id }}">{{ topic.name }}</button>
+                {% endfor %}
+            </div>
+            <input type="hidden" name="selected_topics" id="selected-topics" />
+        </form>
+
+        <div class="suggested-profiles">
+            <h2 style="margin-bottom: 20px;">Suggested profiles to follow</h2>
+            {% for user in suggested_users %}
+            <div class="profile-suggestion">
+                <img src="https://picsum.photos/48" alt="{{ user.username }}" />
+                <div class="profile-info">
+                    <h3>{{ user.username }}</h3>
+                    <p>{{ user.bio or 'Developer at Large' }}</p>
+                </div>
+                <button class="follow-btn" data-userid="{{ user.id }}">Follow</button>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <button type="submit" form="topics-form" class="btn-submit" style="max-width: 200px;">
+                Continue
+            </button>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='script/navbar.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='script/interests.js') }}" defer></script>
+</body>
+</html>

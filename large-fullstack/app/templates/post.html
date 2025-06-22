@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ post.title }} - Large</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/post.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/navbar.css') }}" />
+</head>
+<body>
+
+
+  {% include 'navbar.html' %}
+
+  <!-- Post İçeriği -->
+  <main class="container">
+    <article>
+      <header class="post-header">
+        <h1>{{ post.title }}</h1>
+        <div class="post-meta">
+          <span>By {{ post.author.username }}</span> ·
+          <span>{{ post.created_at.strftime('%b %d, %Y') }}</span> ·
+          {% for topic in post.topics %}
+            <span>{{ topic.name }}</span>{% if not loop.last %}, {% endif %}
+          {% endfor %}
+        </div>
+      </header>
+
+      <div class="post-content">
+        {% for paragraph in post.content.split('\n') %}
+          <p>{{ paragraph }}</p>
+        {% endfor %}
+      </div>
+
+      <!-- Etiketler -->
+      <div class="tags">
+        {% for topic in post.topics %}
+          <span class="tag">{{ topic.name }}</span>
+        {% endfor %}
+      </div>
+
+      <!-- Yorumlar -->
+      <section class="comment-section">
+        <h3 style="margin-bottom: 12px;">Comments</h3>
+        {% if post.comments %}
+          {% for comment in post.comments %}
+            <div class="comment-item">
+              <div class="comment-meta">
+                <strong>{{ comment.user.username }}</strong>
+                <span class="comment-date">{{ comment.created_at.strftime('%d %B %Y %H:%M') }}</span>
+              </div>
+              <p class="comment-text">{{ comment.content }}</p>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p class="no-comment">No comments yet.</p>
+        {% endif %}
+      </section>
+
+      <!-- Yorum Formu -->
+      <div class="comment-form">
+        <h3 style="margin-bottom: 16px;">Leave a Comment</h3>
+        <form id="commentForm">
+          <textarea
+            name="content"
+            placeholder="Write your comment here..."
+            {% if not is_logged_in %}disabled{% endif %}
+            required></textarea>
+          <button
+            type="submit"
+            class="btn-submit {% if not is_logged_in %}login-redirect{% endif %}">
+            Post Comment
+          </button>
+        </form>
+      </div>
+    </article>
+  </main>
+
+  <script src="{{ url_for('static', filename='script/navbar.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='script/post.js') }}" defer></script>
+</body>
+</html>

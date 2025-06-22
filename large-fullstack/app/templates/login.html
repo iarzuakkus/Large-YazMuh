@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - Large</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/navbar.css') }}">
+  <style>
+    .flash-messages {
+      list-style-type: none;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #d9534f;
+      background-color: #f2dede;
+      color: #a94442;
+      border-radius: 4px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  {% include 'navbar.html' %}
+
+  <!-- Login Form -->
+  <main class="container">
+    <div class="auth-container">
+      <h1 style="margin-bottom: 24px; text-align: center;">Login to Large</h1>
+
+      <p id="api-message" class="flash-messages" style="display:none;"></p>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn-submit">Login</button>
+      </form>
+
+      <p style="text-align: center; margin-top: 16px;">
+        Don't have an account?
+        <a href="/register" style="color: #1a8917; text-decoration: none;">Register</a>
+      </p>
+    </div>
+  </main>
+
+  <script src="{{ url_for('static', filename='script/navbar.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='script/login.js') }}" defer></script>
+</body>
+</html>
